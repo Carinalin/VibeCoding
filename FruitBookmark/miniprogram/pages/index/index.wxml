@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">水果书签</text>
+  </view>
+
+  <view class="input-section">
+    <input type="text" placeholder="请输入水果名称" bindinput="handleInput" value="{{inputText}}" />
+    
+    <!-- 添加常用水果快捷选择 -->
+    <view class="quick-fruits">
+      <text class="quick-fruit-tip">快捷选择：</text>
+      <view class="fruit-buttons">
+        <view class="fruit-button" bindtap="selectFruit" data-fruit="桃子">桃子</view>
+        <view class="fruit-button" bindtap="selectFruit" data-fruit="西瓜">西瓜</view>
+        <view class="fruit-button" bindtap="selectFruit" data-fruit="苹果">苹果</view>
+        <view class="fruit-button" bindtap="selectFruit" data-fruit="橄榄">橄榄</view>
+        <view class="fruit-button" bindtap="selectFruit" data-fruit="樱桃">樱桃</view>
+        <view class="fruit-button" bindtap="selectFruit" data-fruit="石榴">石榴</view>
+      </view>
+    </view>
+    
+    <button bindtap="handleGenerate" disabled="{{isLoading}}" class="{{isLoading ? 'disabled' : ''}}">
+      {{isLoading ? '小果果正在努力创作中...' : '生成书签'}}
+    </button>
+  </view>
+
+  <!-- 隐藏的Canvas元素，用于绘制文字 - 调整为512*512尺寸 -->
+  <canvas type="2d" id="bookmarkCanvas" style="width: 512px; height: 512px; position: fixed; left: -9999px; top: -9999px;"></canvas>
+</view>
+
+<!-- 图片预览弹窗 -->
+<view class="preview-modal" wx:if="{{showPreview && canvasImageUrl}}" catchtouchmove="{{true}}" bindtap="hidePreview">
+  <view class="preview-container" catchtap="true">
+    <image 
+      class="preview-image" 
+      src="{{canvasImageUrl}}" 
+      mode="widthFix" 
+      bindlongpress="handleLongPress"
+    />
+    <view class="preview-actions">
+      <button bindtap="saveImage" class="preview-action-button save-button">
+        保存到相册
+      </button>
+      <button bindtap="hidePreview" class="preview-action-button preview-close-button">
+        完成
+      </button>
+    </view>
+  </view>
+</view>

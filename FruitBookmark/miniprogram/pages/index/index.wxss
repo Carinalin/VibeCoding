@@ -1,0 +1,352 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  background-image: linear-gradient(135deg, #f7f7f7, #fcf5f0);
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 添加装饰元素 - 顶部水果图案 */
+.container::before {
+  content: "";
+  position: absolute;
+  top: -50rpx;
+  right: -50rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: rgba(255, 123, 58, 0.1);
+  z-index: -1;
+}
+
+/* 添加装饰元素 - 底部水果图案 */
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: -100rpx;
+  left: -100rpx;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  background: rgba(255, 158, 58, 0.08);
+  z-index: -1;
+}
+
+.header {
+  width: 100%;
+  padding: 40rpx 0;
+  text-align: center;
+  position: relative;
+}
+
+/* 为标题添加装饰性下划线 */
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FF7B3A;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 6rpx;
+  background: linear-gradient(90deg, transparent, #FF7B3A, transparent);
+  border-radius: 3rpx;
+}
+
+.input-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+  position: relative;
+  padding: 20rpx 0;
+}
+
+/* 添加装饰性水果图标 - 使用emoji作为装饰 */
+.quick-fruits {
+  width: 100%;
+  margin: 10rpx 0 30rpx;
+  position: relative;
+}
+
+.quick-fruits::before {
+  content: "🍑";
+  position: absolute;
+  left: -10rpx;
+  top: -20rpx;
+  font-size: 24rpx;
+  opacity: 0.5;
+  transform: rotate(-15deg);
+}
+
+.quick-fruits::after {
+  content: "🍉";
+  position: absolute;
+  right: -10rpx;
+  top: -15rpx;
+  font-size: 24rpx;
+  opacity: 0.5;
+  transform: rotate(15deg);
+}
+
+input {
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  border-radius: 12rpx;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #FF7B3A;
+  box-shadow: 0 2px 8px rgba(255, 123, 58, 0.2);
+}
+
+.quick-fruit-tip {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.fruit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20rpx;
+}
+
+.fruit-button {
+  background-color: #FFF3E8;
+  color: #FF7B3A;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #FFDFC1;
+  transition: all 0.3s;
+}
+
+.fruit-button:active {
+  background-color: #FFE4CC;
+  transform: scale(0.97);
+}
+
+button {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #FF7B3A, #FF9E3A);
+  color: white;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 123, 58, 0.3);
+  border: none;
+  transition: all 0.3s;
+}
+
+button.disabled {
+  background: #cccccc;
+  box-shadow: none;
+  color: #999999;
+}
+
+button:active:not(.disabled) {
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(255, 123, 58, 0.3);
+}
+
+/* 操作按钮相关样式 */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30rpx;
+  position: relative;
+  z-index: 1000; /* 确保按钮在正常流中有较高的z-index */
+}
+
+.action-button {
+  width: 80%;
+  height: 80rpx;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.save-button {
+  background: linear-gradient(135deg, #3AA1FF, #3A7BFF);
+  color: white;
+  box-shadow: 0 2px 6px rgba(58, 123, 255, 0.3);
+}
+
+.button-icon {
+  margin-right: 8rpx;
+  font-size: 32rpx;
+}
+
+/* 字体选择组件 */
+.font-selector {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.font-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+/* 预览弹窗样式 */
+.preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* 增加遮罩层不透明度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; /* 确保弹窗在最上层 */
+  transition: opacity 0.3s ease;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.preview-container {
+  width: 90%;
+  max-width: 650rpx;
+  background-color: transparent;
+  border-radius: 24rpx;
+  overflow: hidden;
+  position: relative;
+  max-height: 80vh; /* 限制最大高度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50rpx); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.preview-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF7B3A;
+  margin-bottom: 25rpx;
+  text-align: center;
+}
+
+.preview-close {
+  position: absolute;
+  top: 15rpx;
+  right: 15rpx;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  z-index: 1;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16rpx 16rpx 0 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9f9;
+  position: relative;
+  z-index: 1; /* 确保图片在按钮上方 */
+}
+
+.preview-actions {
+  display: flex;
+  width: 100%;
+  padding: 30rpx 0;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 0 0 16rpx 16rpx;
+  position: relative;
+  z-index: 2; /* 确保按钮在图片下方 */
+  margin-top: -10rpx; /* 轻微重叠以增强视觉连贯性 */
+}
+
+.preview-action-button {
+  width: 45%;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  margin: 0;
+}
+
+.save-button {
+  background: linear-gradient(135deg, #FF7B3A, #FF9E3A);
+  color: white;
+  box-shadow: 0 2px 6px rgba(255, 123, 58, 0.3);
+}
+
+.preview-close-button {
+  background: #f0f0f0;
+  color: #666;
+}
+
+/* 分享按钮样式覆盖 */
+button.share-button {
+  background: white;
+  color: #333;
+  padding: 0;
+  font-weight: normal;
+  box-shadow: none;
+  border-radius: 0;
+  line-height: normal;
+}
+
+button.share-button::after {
+  border: none;
+}
