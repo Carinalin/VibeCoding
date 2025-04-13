@@ -13,6 +13,7 @@
 ## 技术实现
 
 - **前端**：微信小程序原生开发
+![screenshot_of_miniprogram](screenshot_of_miniprogram.png)
 - **API集成**：
   - **主API服务**：pollinations.ai，不需要 key
     - 文本生成：使用Mistral模型
@@ -100,16 +101,6 @@ module.exports = {
 - 请勿将包含API密钥和APPID的配置文件提交到公共仓库
 - 每次修改config.js中的APPID后，都需要运行`node scripts/update-config.js`更新project.config.json
 - 系统会优先使用pollinations.ai作为主API服务，仅在主API请求失败时才会使用siliconflow作为备用API
-
-## 贡献指南
-
-欢迎贡献代码或提出建议！请遵循以下步骤：
-
-1. Fork本仓库
-2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个Pull Request
 
 ## 许可证
 
