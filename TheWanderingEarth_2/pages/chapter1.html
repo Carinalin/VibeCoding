@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流浪地球2：星海归途 - 第一章</title>
+    <!-- 引入外部资源 -->
+    <link href="https://cdn.staticfile.org/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            /* 亮色主题变量 */
+            --primary-color: #1E88E5;
+            --secondary-color: #64B5F6;
+            --accent-color: #FC3D21;
+            --text-color: #2D3748;
+            --bg-color: #F7FAFC;
+            --card-bg: #FFFFFF;
+            --glow-color: rgba(30, 136, 229, 0.3);
+            --mermaid-arrow-color: #1E88E5;
+            --nav-bg: rgba(247, 250, 252, 0.8);
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme='dark'] {
+            --primary-color: #0B3D91;
+            --secondary-color: #1E88E5;
+            --accent-color: #FC3D21;
+            --text-color: #E2E8F0;
+            --bg-color: #0A1128;
+            --card-bg: #1A2A3A;
+            --glow-color: rgba(30, 136, 229, 0.6);
+            --mermaid-arrow-color: #1E88E5;
+            --nav-bg: rgba(10, 17, 40, 0.8);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 音频播放器样式 */
+        .audio-player {
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            width: 320px;
+            transition: all 0.3s ease;
+            z-index: 50;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .audio-player.fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            margin-top: 0;
+            transform: translateY(0);
+            animation: float-in 0.5s ease-out;
+        }
+        
+        @keyframes float-in {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .audio-controls {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .audio-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .audio-btn:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+        
+        .audio-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .audio-status {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .audio-progress {
+            width: 100%;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-top: 6px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .audio-progress-filled {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .audio-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .audio-progress:hover::after {
+            opacity: 1;
+        }
+        
+        /* 页面导航栏中的音频控件 */
+        .nav-audio-player {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-audio-controls {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-audio-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-audio-btn:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+        
+        .nav-audio-status {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .nav-audio-progress {
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            margin-top: 4px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .nav-audio-progress-filled {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        [data-theme='dark'] {
+            --primary-color: #1E88E5;
+            --secondary-color: #64B5F6;
+            --accent-color: #FC3D21;
+            --text-color: #E2E8F0;
+            --bg-color: #0A1128;
+            --card-bg: #1A2A3A;
+            --glow-color: rgba(30, 136, 229, 0.6);
+            --mermaid-arrow-color: #1E88E5;
+        }
+        
+        [data-theme='dark'] .hero-section {
+            background: url('../background/back2.png') no-repeat center center/cover, rgba(0, 0, 0, 0.7);
+            background-blend-mode: darken;
+        }
+        
+        [data-theme='dark'] .page-nav {
+            background: url('../background/back2.png') no-repeat center center/cover, rgba(0, 0, 0, 0.7);
+            background-blend-mode: darken;
+        }
+        [data-theme='dark'] .page-nav:not(.active) {
+            background: url('../background/nav2.png') no-repeat center center/cover, rgba(0, 0, 0, 0.7);
+            background-blend-mode: darken;
+        }
+        
+
+        body {
+            font-family: 'Noto Sans SC', Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", "Hiragino Sans GB", Simsun, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s, color 0.5s;
+            overflow-x: hidden;
+            perspective: 1000px;
+            margin: 0;
+        }
+
+        .title-font {
+            font-family: 'Noto Serif SC', serif;
+            text-shadow: 0 0 15px var(--glow-color);
+            animation: title-glow 3s infinite alternate;
+        }
+
+        @keyframes title-glow {
+            0% { text-shadow: 0 0 10px var(--glow-color); }
+            100% { text-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--glow-color); }
+        }
+
+        .hero-section {
+            background: url('../background/back2.png') no-repeat center center/cover;
+            min-height: 60vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            z-index: 99;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            width: 100%;
+            border: none;
+            outline: none;
+            margin-top: 0;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            opacity: 0;
+            transform: translateZ(-10px) scale(1.5);
+        }
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .flame-container {
+            position: absolute;
+            bottom: -50px;
+            width: 100%;
+            height: 200px;
+            z-index: 2;
+            filter: blur(5px);
+            transform: translateZ(5px) scale(0.95);
+            pointer-events: none;
+        }
+
+        .chapter-card {
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .chapter-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px var(--glow-color);
+        }
+
+        .first-letter::first-letter {
+            font-size: 3.5em;
+            float: left;
+            margin-right: 0.1em;
+            line-height: 0.8;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-family: 'Noto Serif SC', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 4.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border-radius: 9999px;
+            padding: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15) rotate(15deg);
+        }
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-color);
+            background: rgba(30, 136, 229, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        [data-theme='dark'] .quote {
+            background: rgba(100, 181, 246, 0.1);
+        }
+
+        /* 页面导航 */
+        .page-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .page-nav-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .page-nav-title i {
+            color: var(--accent-color);
+        }
+        
+        .chapter-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .chapter-nav-btn {
+            background-color: rgba(30, 136, 229, 0.2);
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .chapter-nav-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .chapter-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .chapter-nav-btn i {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面导航栏 -->
+    <div class="page-nav" id="pageNav">
+        <div class="page-nav-title" id="pageNavTitle">
+            <i class="fas fa-rocket"></i>
+            <span>流浪地球2：星海归途</span>
+        </div>
+        <div class="chapter-nav">
+            <button class="chapter-nav-btn" onclick="window.location.href='../index.html'">
+                <i class="fas fa-chevron-left"></i> 序章
+            </button>
+            <button class="chapter-nav-btn" onclick="window.location.href='chapter2.html'">
+                下一章 <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 粒子效果容器 -->
+    <div id="particles-js"></div>
+    
+    <!-- 主题切换按钮 -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun text-yellow-500 dark:text-gray-400 text-xl"></i>
+    </button>
+
+    <!-- Hero 区域 -->
+    <section class="hero-section">
+        <div class="flame-container" id="flameCanvas"></div>
+            <div class="relative z-20 text-center transform transition-all duration-700 hover:scale-105 bg-black bg-opacity-50 p-6 rounded-lg">
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-4 text-white">第一章</h1>
+            <p class="text-xl md:text-2xl opacity-90 text-white mb-5 transform hover:scale-105 transition-transform duration-300">新太阳的裂痕</p>
+            <div class="mt-6 flex justify-center">
+                <button class="bg-white bg-opacity-20 hover:bg-opacity-40 px-6 py-2 rounded-full transition-all duration-500 backdrop-blur-sm text-white text-lg hover:shadow-glow transform hover:-translate-y-1" onclick="scrollToChapter()">
+                    <i class="fas fa-book-open mr-2"></i>开始阅读
+                </button>
+            </div>
+            
+            <!-- 音频播放器 -->
+            <div class="audio-player mx-auto" id="audioPlayer">
+                <div class="audio-controls">
+                    <button class="audio-btn" id="playBtn" title="播放"><i class="fas fa-play"></i></button>
+                    <button class="audio-btn" id="pauseBtn" style="display:none" title="暂停"><i class="fas fa-pause"></i></button>
+                    <button class="audio-btn" id="restartBtn" title="重新开始"><i class="fas fa-redo-alt"></i></button>
+                </div>
+                <div class="audio-status">
+                    <span id="audioCaption">正在加载有声阅读...</span>
+                    <div class="audio-progress" id="audioProgressContainer">
+                        <div class="audio-progress-filled" id="audioProgressBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 正文区域 -->
+    <main class="container mx-auto px-4 py-16" id="chapter">
+        <article class="chapter-card max-w-4xl mx-auto p-10 transform hover:scale-[1.01] transition-all duration-500">
+            <div class="prose prose-lg mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center title-font">新太阳的裂痕</h2>
+                <p class="first-letter mb-6">比邻星的轨道并不平静。它的光谱中有一种微妙的波动，科学家们称之为"低频脉冲"。最初，这被认为是大气扰动或恒星内部的正常活动，但最近十年，脉冲的频率在增加，像某种古老的鼓点，从星海深处传来，敲击着人类的神经。</p>
+                <p class="mb-6">我被召回地球，参加联合政府的紧急会议。飞船穿过大气层时，我低头俯瞰：曾经的冰原已化作碧绿的平原，地球引擎的巨柱仍在运转，但它们的蓝色光焰不再刺眼，而是柔和地融入新太阳的光辉。城市在废墟上重建，孩子们在草地上奔跑，空气中弥漫着久违的泥土芬芳。我的曾孙女，灵儿的后代，名叫曙光的小女孩，曾拉着我的手问："爷爷，太阳真的不会再爆炸了吧？"</p>
+                <p class="mb-6">我无法回答她。因为我知道，人类的命运从未真正脱离过悬崖的边缘。</p>
+                <p class="mb-6">会议在地下指挥中心召开，那里曾是地球引擎的控制枢纽，如今被改造成了联合政府的议会厅。屏幕上，科学家们展示了一组令人不安的数据：比邻星的脉冲正在引发地球轨道的微小偏移，每年0.0001个天文单位，微不足道，却足以在千年后让地球脱离宜居带。</p>
+                <div class="my-8 flex justify-center">
+                    <img src="../images/image_0_比邻星的脉冲引发地球轨道偏移，科学家们在_f7grao.jpg" alt="比邻星脉冲引发地球轨道偏移" class="rounded-lg shadow-lg max-w-full h-auto" style="max-height: 400px;">
+                </div>
+                <div class="quote">"这是自然现象，还是……"一位年轻的天文学家欲言又止。</div>
+                <p class="mb-6">"还是人为干预？"我接过话头，声音沙哑。房间里的人都看向我，那些年轻的脸上写满了疑惑，而老一辈的眼中则闪过一丝熟悉的恐惧——那是刹车时代留下的阴影。</p>
+                <p class="mb-6">"我们检测到脉冲的源头并非比邻星本身，"首席科学家李教授说，"而是来自它的伴星，一颗暗物质星，质量极小，却以某种方式影响着比邻星的内部结构。"</p>
+                <p class="mb-6">暗物质星。这个词像一颗冰冷的子弹，击中了我的记忆。在流浪时代，科学家们曾推测太阳系外的暗物质可能干扰地球的航行，但那时我们别无选择，只能义无返顾地冲向未知。如今，未知主动找上了门。</p>
+                
+                <div class="mt-10 flex justify-between">
+                    <a href="../index.html" class="bg-primary-color bg-opacity-80 hover:bg-opacity-100 px-6 py-3 rounded-full transition-all duration-300 text-white text-lg flex items-center gap-2">
+                        <i class="fas fa-arrow-left"></i> 返回序章
+                    </a>
+                    <a href="chapter2.html" class="bg-primary-color bg-opacity-80 hover:bg-opacity-100 px-6 py-3 rounded-full transition-all duration-300 text-white text-lg flex items-center gap-2">
+                        前往第二章 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 章节导航 -->
+        <div class="chapter-card max-w-4xl mx-auto p-10 mt-16 transform hover:scale-[1.01] transition-all duration-500">
+            <h2 class="text-3xl font-bold mb-8 text-center title-font">章节导航</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="../index.html" class="p-4 bg-primary-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-color flex items-center justify-center text-white">序</div>
+                    <div>
+                        <h3 class="font-bold">序章</h3>
+                        <p class="text-sm opacity-80">流浪地球的回忆</p>
+                    </div>
+                </a>
+                <a href="chapter1.html" class="p-4 bg-accent-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-accent-color flex items-center justify-center text-white">1</div>
+                    <div>
+                        <h3 class="font-bold">第一章</h3>
+                        <p class="text-sm opacity-80">新太阳的裂痕</p>
+                    </div>
+                </a>
+                <a href="chapter2.html" class="p-4 bg-primary-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-color flex items-center justify-center text-white">2</div>
+                    <div>
+                        <h3 class="font-bold">第二章</h3>
+                        <p class="text-sm opacity-80">暗星的低语</p>
+                    </div>
+                </a>
+                <a href="chapter3.html" class="p-4 bg-primary-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-color flex items-center justify-center text-white">3</div>
+                    <div>
+                        <h3 class="font-bold">第三章</h3>
+                        <p class="text-sm opacity-80">星际的审判</p>
+                    </div>
+                </a>
+                <a href="chapter4.html" class="p-4 bg-primary-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-color flex items-center justify-center text-white">4</div>
+                    <div>
+                        <h3 class="font-bold">第四章</h3>
+                        <p class="text-sm opacity-80">归途的代价</p>
+                    </div>
+                </a>
+                <a href="chapter5.html" class="p-4 bg-primary-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-color flex items-center justify-center text-white">5</div>
+                    <div>
+                        <h3 class="font-bold">第五章</h3>
+                        <p class="text-sm opacity-80">星海的曙光</p>
+                    </div>
+                </a>
+                <a href="epilogue.html" class="p-4 bg-primary-color bg-opacity-20 rounded-lg hover:bg-opacity-40 transition-all duration-300 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-color flex items-center justify-center text-white">尾</div>
+                    <div>
+                        <h3 class="font-bold">尾声</h3>
+                        <p class="text-sm opacity-80">新的地平线</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">本网页文本由 Grok AI 生成</p>
+            <p class="mb-4">网页作者：Carinalin</p>
+            <div class="flex justify-center space-x-6">
+                <i class="fas fa-book" style="color: var(--primary-color);;"></i>
+                <i class="fas fa-fire" style="color: var(--secondary-color);;"></i>
+                <i class="fas fa-magic" style="color: var(--accent-color);;"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 音频播放器功能
+        let audioPlayer;
+        let isPlaying = false;
+        
+        function setupAudioPlayer() {
+            // 创建音频对象并设置音频文件
+            audioPlayer = new Audio('../audio/chapter1.mp3');
+            
+            // 设置音频加载完成后的事件
+            audioPlayer.addEventListener('loadedmetadata', function() {
+                audioCaption.textContent = '雷军读给你听';
+            });
+            
+            // 设置音频播放结束后的事件
+            audioPlayer.addEventListener('ended', function() {
+                isPlaying = false;
+                playBtn.style.display = 'flex';
+                pauseBtn.style.display = 'none';
+                audioProgressBar.style.width = '0%';
+            });
+            
+            // 更新进度条
+            audioPlayer.addEventListener('timeupdate', function() {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                audioProgressBar.style.width = `${progress}%`;
+            });
+            
+            // 播放按钮点击事件
+            playBtn.addEventListener('click', function() {
+                if (!isPlaying) {
+                    audioPlayer.play();
+                    playBtn.style.display = 'none';
+                    pauseBtn.style.display = 'flex';
+                    isPlaying = true;
+                }
+            });
+            
+            // 暂停按钮点击事件
+            pauseBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    audioPlayer.pause();
+                    pauseBtn.style.display = 'none';
+                    playBtn.style.display = 'flex';
+                    isPlaying = false;
+                }
+            });
+            
+            // 重新开始按钮点击事件
+            restartBtn.addEventListener('click', function() {
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+                playBtn.style.display = 'none';
+                pauseBtn.style.display = 'flex';
+                isPlaying = true;
+            });
+            
+            // 主进度条点击事件
+            document.getElementById('audioProgressContainer').addEventListener('click', function(e) {
+                if (!audioPlayer || !audioPlayer.duration) {
+                    return;
+                }
+                
+                const progressWidth = this.clientWidth;
+                const clickPosition = e.offsetX;
+                const jumpToTime = (clickPosition / progressWidth) * audioPlayer.duration;
+                audioPlayer.currentTime = jumpToTime;
+            });
+        }
+        
+        // 页面加载完成后初始化音频播放器
+        window.addEventListener('load', function() {
+            setupAudioPlayer();
+        });
+
+        // 粒子效果配置
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 100,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 0.3,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#1E88E5",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+
+        // 主题切换
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // 检查本地存储中的主题设置
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-moon text-blue-300 text-xl';
+            } else {
+                icon.className = 'fas fa-sun text-yellow-500 text-xl';
+            }
+        }
+        
+        // 滚动到章节
+        function scrollToChapter() {
+            document.getElementById('chapter').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

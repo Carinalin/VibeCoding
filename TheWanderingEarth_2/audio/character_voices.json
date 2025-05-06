@@ -1,0 +1,51 @@
+{
+  "narrator": {
+    "description": "旁白/叙述者，流浪世代的老者，小说的第一人称视角",
+    "voice_id": "leijun01",
+    "voice_name": "雷军克隆音色"
+  },
+  "characters": [
+    {
+      "name": "林若曦",
+      "description": "年轻的舰长，坚韧的女性，曙光号的指挥官",
+      "voice_id": "female-yujie",
+      "voice_name": "御姐音色"
+    },
+    {
+      "name": "张博士",
+      "description": "物理学家，科学家，负责引擎改造工程",
+      "voice_id": "male-qn-jingying",
+      "voice_name": "精英青年音色"
+    },
+    {
+      "name": "李教授",
+      "description": "首席科学家，解释比邻星脉冲现象",
+      "voice_id": "Chinese (Mandarin)_Intellectual_Man",
+      "voice_name": "学者男声"
+    },
+    {
+      "name": "守护者/平衡者",
+      "description": "暗星的神秘存在，维护宇宙平衡的古老存在",
+      "voice_id": "Chinese (Mandarin)_Robot_Armor",
+      "voice_name": "机械战甲"
+    },
+    {
+      "name": "曙光",
+      "description": "主角的曾孙女，小女孩",
+      "voice_id": "female-shaonv",
+      "voice_name": "少女音色"
+    },
+    {
+      "name": "年轻天文学家",
+      "description": "会议上发言的年轻科学家",
+      "voice_id": "male-qn-daxuesheng",
+      "voice_name": "青年大学生音色"
+    },
+    {
+      "name": "主角孙女",
+      "description": "尾声中出现的主角孙女",
+      "voice_id": "female-tianmei",
+      "voice_name": "甜美女性音色"
+    }
+  ]
+}
