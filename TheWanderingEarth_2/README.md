@@ -6,6 +6,8 @@
 
 使用工具：Grok、Cline、Trae、MINIMAX MCP
 
+网页展示：[yourware.so](https://2990n43y63.app.yourware.so/)
+
 ## 项目结构
 
 本项目包含以下主要组成部分：
