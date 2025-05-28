@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarinaHome生态系统详解</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-slate-800 to-gray-900 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    CarinaHome
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="characters.html" class="nav-link">角色档案</a>
+                    <a href="interactive-adventure.html" class="nav-link">互动体验</a>
+                </div>
+                <button id="mobile-menu-toggle" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900/95 backdrop-blur-sm border-t border-slate-700/50">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="nav-link block px-3 py-2 rounded-md">首页</a>
+                <a href="characters.html" class="nav-link block px-3 py-2 rounded-md">角色档案</a>
+                <a href="interactive-adventure.html" class="nav-link block px-3 py-2 rounded-md">互动体验</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-20 pb-16 bg-gradient-to-b from-slate-800/50 to-gray-900/50">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
+                CarinaHome生态系统
+            </h1>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                深入了解这颗神秘星球的复杂生态环境，从地理特征到气候模式，
+                从独特的动植物群落到罕见的自然现象。
+            </p>
+        </div>
+    </header>
+
+    <!-- Geographic Features -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-cyan-300 text-center mb-12">地理特征</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="ecosystem-card">
+                        <h3 class="text-2xl font-semibold text-purple-300 mb-4">碳岩荒原 (Carbonaceous Plains)</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            行星表面大面积覆盖着由原始碳质材料构成的荒原。这些区域呈现低反照率的黑暗色调，
+                            并带有微红的色泽。地表多孔且疏松，布满风化的有机化合物沉积物。
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🌑</span>
+                                <span>低反照率黑暗表面</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🕳️</span>
+                                <span>多孔疏松结构</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🧪</span>
+                                <span>有机化合物沉积</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ecosystem-card">
+                        <h3 class="text-2xl font-semibold text-blue-300 mb-4">水晶森林 (Water Crystal Forest)</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            充满巨型水晶树和发光植被的梦幻区域，光影交错，宛如仙境。这里是初期探索的理想之地，
+                            隐藏着环境谜题和珍贵资源如心语苔藓。
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">💎</span>
+                                <span>巨型水晶树</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✨</span>
+                                <span>发光植被</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🌀</span>
+                                <span>环境谜题</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ecosystem-card">
+                        <h3 class="text-2xl font-semibold text-red-300 mb-4">熔岩峡谷 (Lava Canyon)</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            炽热岩浆流和高温泉的危险区域，空气中充满硫磺气味。这里散落着高温矿石，
+                            是获取高级材料的地点，但环境挑战严峻。
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🌋</span>
+                                <span>炽热岩浆流</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔥</span>
+                                <span>高温矿石</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">☠️</span>
+                                <span>环境危险</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="ecosystem-card">
+                        <h3 class="text-2xl font-semibold text-green-300 mb-4">漂浮岛屿群 (Floating Islands)</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            空中悬浮的岛屿群，由藤蔓和风道连接，展现星球反重力能量机制。
+                            这里是高风险区域，考验移动和平台跳跃能力。
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🏝️</span>
+                                <span>悬浮岛屿</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🌿</span>
+                                <span>藤蔓连接</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🌀</span>
+                                <span>反重力能量</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ecosystem-card">
+                        <h3 class="text-2xl font-semibold text-yellow-300 mb-4">古代遗迹 (Ancient Ruins)</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            古老建筑群，布满机关和谜题，承载着星球的历史痕迹。这里是核心剧情推进点，
+                            通过解谜和探索可揭示星球历史和通往终极目标的隐秘通路。
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🏛️</span>
+                                <span>古老建筑</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🧩</span>
+                                <span>机关谜题</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📜</span>
+                                <span>历史线索</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ecosystem-card">
+                        <h3 class="text-2xl font-semibold text-emerald-300 mb-4">生物发光洞穴 (Bioluminescent Cave)</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            漆黑地底环境，发光菌类和奇异生物散发出微弱光芒，回声在洞中回荡。
+                            这里充满黑暗和声音挑战，可能隐藏通往其他区域的捷径。
+                        </p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🌌</span>
+                                <span>漆黑地底</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✨</span>
+                                <span>发光菌类</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔊</span>
+                                <span>回声挑战</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ecosystem-card mt-12">
+                <h3 class="text-2xl font-semibold text-pink-300 mb-4">女王高原及宫殿 (Queen's Plateau & Palace)</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    庄严平原和宏伟宫殿所在的区域，皇家守卫巡逻，充满肃穆气氛。这里是游戏终极区域，
+                    涉及高等级战斗或潜行挑战，也是与最终目标互动的所在地。
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🏰</span>
+                        <span>宏伟宫殿</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🛡️</span>
+                        <span>皇家守卫</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚔️</span>
+                        <span>终极挑战</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flora and Fauna -->
+    <section class="py-16 bg-gradient-to-b from-slate-800/30 to-gray-900/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-purple-300 text-center mb-12">特有动植物群落</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Plants -->
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-green-500 to-emerald-600">
+                        <h3 class="text-xl font-semibold">碳光藻</h3>
+                        <span class="organism-type">植物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            附着在碳岩表面，呈深黑色或紫黑色，能吸收低能辐射进行光合作用。
+                            部分种类边缘能发出微弱磷光。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">光合作用</span>
+                            <span class="trait-tag-small">磷光发射</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-blue-500 to-cyan-600">
+                        <h3 class="text-xl font-semibold">挥发孢</h3>
+                        <span class="organism-type">植物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            呈半透明囊状，内含挥发性液体。受环境温度刺激会释放孢子和挥发物，
+                            形成局部雾气。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">温度敏感</span>
+                            <span class="trait-tag-small">孢子释放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-purple-500 to-pink-600">
+                        <h3 class="text-xl font-semibold">辐射树</h3>
+                        <span class="organism-type">植物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            高大，树干呈晶体结构，能吸收并储存高能辐射。
+                            在辐射高峰期，树干和叶片会发出耀眼光芒。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">辐射吸收</span>
+                            <span class="trait-tag-small">能量储存</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-yellow-500 to-orange-600">
+                        <h3 class="text-xl font-semibold">碳壳龟</h3>
+                        <span class="organism-type">动物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            外壳由碳质和矿物质硬化而成，能抵御辐射和物理撞击。
+                            通过特殊泄殖腔结构吸收微量氧气。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">辐射防护</span>
+                            <span class="trait-tag-small">特殊呼吸</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-red-500 to-pink-600">
+                        <h3 class="text-xl font-semibold">辐射跃兽</h3>
+                        <span class="organism-type">动物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            体型类似中型犬，体表覆盖能吸收和重定向辐射的鳞片，
+                            能进行远距离跳跃。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">辐射免疫</span>
+                            <span class="trait-tag-small">跳跃能力</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-gray-500 to-slate-600">
+                        <h3 class="text-xl font-semibold">晶翼掠食者</h3>
+                        <span class="organism-type">动物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            体态高大，拥有由轻质晶体构成的翼状结构，
+                            是主要的地面掠食者。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">顶级掠食者</span>
+                            <span class="trait-tag-small">晶体翅膀</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-blue-500 to-cyan-600">
+                        <h3 class="text-xl font-semibold">光灵 (Light Spirit)</h3>
+                        <span class="organism-type">动物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            小型发光生物，漂浮在水晶森林中，散发出柔和光芒。
+                            它们似乎被能量波动吸引，常聚集在资源点附近。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">发光生物</span>
+                            <span class="trait-tag-small">资源指示</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-red-500 to-orange-600">
+                        <h3 class="text-xl font-semibold">火蜥蜴 (Fire Salamander)</h3>
+                        <span class="organism-type">动物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            生活在熔岩峡谷中的小型爬行生物，皮肤耐高温，
+                            能在岩浆流附近活动，攻击性较强。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">耐高温</span>
+                            <span class="trait-tag-small">攻击性</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="organism-card">
+                    <div class="organism-header bg-gradient-to-r from-green-500 to-emerald-600">
+                        <h3 class="text-xl font-semibold">空水母 (Air Jellyfish)</h3>
+                        <span class="organism-type">动物</span>
+                    </div>
+                    <div class="organism-content">
+                        <p class="text-gray-300 text-sm mb-3">
+                            漂浮在漂浮岛屿群中的透明生物，利用反重力能量移动，
+                            触手带有轻微毒性，需小心避开。
+                        </p>
+                        <div class="organism-traits">
+                            <span class="trait-tag-small">反重力移动</span>
+                            <span class="trait-tag-small">轻微毒性</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Phenomena -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-cyan-300 text-center mb-12">特殊自然现象</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="phenomena-card">
+                    <div class="phenomena-icon">🌌</div>
+                    <h3 class="text-2xl font-semibold text-purple-300 mb-4">辐射极光</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        靠近海山二星系带来的强烈恒星风和高能粒子流与CarinaHome稀薄大气相互作用，
+                        在地表或大气层边缘产生异常明亮和多彩的辐射极光。
+                    </p>
+                </div>
+
+                <div class="phenomena-card">
+                    <div class="phenomena-icon">✨</div>
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-4">地下辉光</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        在富含有机物或存在地下脉藤、亚冰蠕虫活动的区域，
+                        出现微弱的生物荧光或化学发光，形成地下洞穴中的幽静辉光。
+                    </p>
+                </div>
+
+                <div class="phenomena-card">
+                    <div class="phenomena-icon">🌀</div>
+                    <h3 class="text-2xl font-semibold text-yellow-300 mb-4">时空涟漪</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        极端恒星环境可能在星球附近造成轻微的时空扰动，
+                        表现为光学扭曲、感官错位或小型异常事件。
+                    </p>
+                </div>
+
+                <div class="phenomena-card">
+                    <div class="phenomena-icon">💎</div>
+                    <h3 class="text-2xl font-semibold text-red-300 mb-4">晶体共振</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        碳晶山脉中的巨大晶体在特定条件下会产生共振效应，
+                        释放出强烈的能量波动和音频振动。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="py-16 bg-gradient-to-b from-slate-800/30 to-gray-900/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-purple-300 text-center mb-12">特有资源</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="resource-card">
+                    <div class="resource-icon bg-gradient-to-r from-green-500 to-emerald-600">🧪</div>
+                    <h3 class="text-lg font-semibold text-emerald-300 mb-2">原始有机化合物</h3>
+                    <p class="text-gray-400 text-sm">
+                        富含未分解的原始有机物沉积，具有巨大的科研价值。
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon bg-gradient-to-r from-blue-500 to-cyan-600">❄️</div>
+                    <h3 class="text-lg font-semibold text-cyan-300 mb-2">亚表层挥发物</h3>
+                    <p class="text-gray-400 text-sm">
+                        地下水冰和挥发物储藏，是潜在的水源或能源。
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon bg-gradient-to-r from-purple-500 to-pink-600">💎</div>
+                    <h3 class="text-lg font-semibold text-purple-300 mb-2">碳晶体</h3>
+                    <p class="text-gray-400 text-sm">
+                        具有独特物理和能量储存特性的特殊晶体。
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon bg-gradient-to-r from-red-500 to-orange-600">⚡</div>
+                    <h3 class="text-lg font-semibold text-red-300 mb-2">辐射富集矿物</h3>
+                    <p class="text-gray-400 text-sm">
+                        长期受辐射影响的变异矿物，具有独特能量属性。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Main -->
+    <section class="py-16 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-cyan-300 mb-6">准备探索CarinaHome了吗？</h2>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                现在你已经了解了这颗神秘星球的生态系统，是时候遇见居住在这里的独特角色，
+                并开始你的互动冒险了。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="characters.html" class="hero-button bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700">
+                    认识星球居民
+                </a>
+                <a href="interactive-adventure.html" class="hero-button bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700">
+                    开始互动冒险
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-900 border-t border-slate-700/50">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4 inline-block">
+                CarinaHome
+            </a>
+            <p class="text-gray-400">
+                探索未知，发现可能
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarinaHome角色档案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-slate-800 to-gray-900 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    CarinaHome
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="ecosystem.html" class="nav-link">生态系统</a>
+                    <a href="interactive-adventure.html" class="nav-link">互动体验</a>
+                </div>
+                <button id="mobile-menu-toggle" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900/95 backdrop-blur-sm border-t border-slate-700/50">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="nav-link block px-3 py-2 rounded-md">首页</a>
+                <a href="ecosystem.html" class="nav-link block px-3 py-2 rounded-md">生态系统</a>
+                <a href="interactive-adventure.html" class="nav-link block px-3 py-2 rounded-md">互动体验</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-20 pb-16 bg-gradient-to-b from-slate-800/50 to-gray-900/50">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
+                CarinaHome角色档案
+            </h1>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                深入了解居住在这颗神秘星球上的独特角色。他们各自代表不同的立场和互动机会，
+                拥有独特的背景故事和生存技能。
+            </p>
+        </div>
+    </header>
+
+    <!-- Character: Queen Carina -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="character-detail-card">
+                <div class="character-header-large">
+                    <div class="character-avatar-large bg-gradient-to-br from-purple-500 to-pink-600">
+                        <span class="text-6xl">👑</span>
+                    </div>
+                    <div class="character-info-large">
+                        <h2 class="text-4xl font-bold text-purple-300 mb-4">女王卡琳娜 (Queen Carina)</h2>
+                        <h3 class="text-xl text-pink-300 mb-4">星球统治者，皇冠持有者</h3>
+                        <div class="character-traits-large">
+                            <span class="trait-tag">强大领袖</span>
+                            <span class="trait-tag">孤独守护者</span>
+                            <span class="trait-tag">皇冠掌控者</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-content-large">
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-purple-300 mb-4">背景故事</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            女王卡琳娜是CarinaHome星球的至高统治者，头戴神秘的皇冠，掌控着星球的能量核心。
+                            她被描绘为强大而孤独的存在，为了守护皇冠和星球的秘密，采取了强硬的手段。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            她的统治历史充满了争议，有人视她为星球的保护者，有人则认为她的行为导致了能量的失衡。
+                            卡琳娜的内心深处隐藏着对星球未来的忧虑，她既是最终的挑战，也是可能合作的伙伴。
+                        </p>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-purple-300 mb-4">性格特征</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-lg font-semibold text-pink-300 mb-2">优点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 拥有无与伦比的力量和智慧</li>
+                                    <li>• 对星球的命运有深刻理解</li>
+                                    <li>• 在关键时刻可能展现仁慈</li>
+                                    <li>• 掌控皇冠带来的神秘能量</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold text-yellow-300 mb-2">缺点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 孤独和猜疑让她难以信任他人</li>
+                                    <li>• 强硬手段可能引发冲突</li>
+                                    <li>• 对皇冠的执着可能导致失衡</li>
+                                    <li>• 难以接近，充满威严</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-purple-300 mb-4">角色定位</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            女王卡琳娜是最终目标，可能是终极BOSS或关键互动对象。她的使命是守护皇冠和星球的能量，
+                            玩家的选择将决定是与她对决还是寻求合作。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            与她的对决需要充分的准备和策略，而说服她则需要深入了解星球的秘密和充足的证据。
+                            成功互动后，玩家可能获得皇冠力量或稳定星球，解锁胜利结局。
+                        </p>
+                    </div>
+
+                    <div class="character-quotes">
+                        <h4 class="text-2xl font-semibold text-purple-300 mb-4">经典对话</h4>
+                        <div class="space-y-4">
+                            <blockquote class="quote-card">
+                                <p class="italic text-purple-300 mb-2">
+                                    "外来者，你为何闯入我的领域？是来挑战我的力量，还是寻求星球的平衡？"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 女王卡琳娜在宫殿中</cite>
+                            </blockquote>
+                            <blockquote class="quote-card">
+                                <p class="italic text-purple-300 mb-2">
+                                    "皇冠的力量需要平衡，而非独占。外来者，你的智慧和诚意打动了我，让我们一起稳定星球吧。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 女王卡琳娜在和平结局中</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character: Elda -->
+    <section class="py-16 bg-gradient-to-b from-slate-800/30 to-gray-900/30">
+        <div class="container mx-auto px-6">
+            <div class="character-detail-card">
+                <div class="character-header-large">
+                    <div class="character-avatar-large bg-gradient-to-br from-blue-500 to-cyan-600">
+                        <span class="text-6xl">🧙‍♀️</span>
+                    </div>
+                    <div class="character-info-large">
+                        <h2 class="text-4xl font-bold text-cyan-300 mb-4">艾尔达 (Elda)</h2>
+                        <h3 class="text-xl text-blue-300 mb-4">星球历史见证者</h3>
+                        <div class="character-traits-large">
+                            <span class="trait-tag">智慧长者</span>
+                            <span class="trait-tag">知识提供者</span>
+                            <span class="trait-tag">潜在盟友</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-content-large">
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-cyan-300 mb-4">背景故事</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            艾尔达是CarinaHome星球上年迈的当地居民，亲眼见证了星球的历史变迁。
+                            她居住在水晶森林深处，知晓皇冠和古代遗迹的秘密，是星球知识的守护者。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            她的家族世代传承着星球的传说和历史，艾尔达本人经历了多次能量波动带来的灾难，
+                            这让她对皇冠的力量充满敬畏，也对任何外来者抱有警惕。
+                        </p>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-cyan-300 mb-4">性格特征</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-lg font-semibold text-blue-300 mb-2">优点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 拥有丰富的星球历史知识</li>
+                                    <li>• 能提供关键任务和线索</li>
+                                    <li>• 对真诚的人展现善意</li>
+                                    <li>• 了解古代遗迹的秘密</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold text-yellow-300 mb-2">缺点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 对陌生人充满怀疑</li>
+                                    <li>• 行动能力有限</li>
+                                    <li>• 任务要求可能较为苛刻</li>
+                                    <li>• 性格固执，难以改变想法</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-cyan-300 mb-4">角色定位</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            艾尔达是主要任务给予者和知识提供者，也是潜在的盟友。她的使命是保护星球的历史，
+                            并引导有价值的人寻找真相。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            她的任务通常涉及危险区域的探索和物品收集，赢得她的信任需要正确的对话选择。
+                            成功互动后，玩家可获得丰富的背景信息、支线任务和古老知识，为和平结局提供关键支持。
+                        </p>
+                    </div>
+
+                    <div class="character-quotes">
+                        <h4 class="text-2xl font-semibold text-cyan-300 mb-4">经典对话</h4>
+                        <div class="space-y-4">
+                            <blockquote class="quote-card">
+                                <p class="italic text-blue-300 mb-2">
+                                    "外来者，你为何闯入这片圣地？如果你想获得我的信任，证明你的价值吧。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 艾尔达在水晶森林中</cite>
+                            </blockquote>
+                            <blockquote class="quote-card">
+                                <p class="italic text-blue-300 mb-2">
+                                    "不错，外来者。你比我想象中更有能力。听好了，皇冠的秘密隐藏在古代遗迹中，去那里寻找答案吧。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 艾尔达在任务完成后</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character: Kal -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="character-detail-card">
+                <div class="character-header-large">
+                    <div class="character-avatar-large bg-gradient-to-br from-yellow-600 to-orange-600">
+                        <span class="text-6xl">💰</span>
+                    </div>
+                    <div class="character-info-large">
+                        <h2 class="text-4xl font-bold text-yellow-300 mb-4">卡尔 (Kal)</h2>
+                        <h3 class="text-xl text-orange-300 mb-4">实用主义探险家商人</h3>
+                        <div class="character-traits-large">
+                            <span class="trait-tag">精明商人</span>
+                            <span class="trait-tag">信息掮客</span>
+                            <span class="trait-tag">资源交易者</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-content-large">
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-yellow-300 mb-4">背景故事</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            卡尔是CarinaHome星球上的实用主义探险家和商人，长期在熔岩峡谷等危险区域活动，
+                            以获取稀有资源并与他人交易。他对利益的追求高于一切，但也因此消息灵通。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            卡尔的过去充满了冒险和交易的传说，他曾多次深入高风险区域，带回珍贵材料，
+                            也因此积累了丰富的经验和人脉。他的营地是探险者们的交易中心。
+                        </p>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-yellow-300 mb-4">性格特征</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-lg font-semibold text-orange-300 mb-2">优点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 消息灵通，了解星球各处动态</li>
+                                    <li>• 提供高级装备和稀有材料</li>
+                                    <li>• 能快速帮助玩家积累资源</li>
+                                    <li>• 提供重要游戏提示和信息</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold text-yellow-300 mb-2">缺点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 交易成本高昂，重视利益</li>
+                                    <li>• 任务通常涉及高风险区域</li>
+                                    <li>• 对情感和信任不感兴趣</li>
+                                    <li>• 可能隐瞒部分关键信息</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-yellow-300 mb-4">角色定位</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            卡尔是资源交易者和信息掮客，也是支线任务发布者。他的使命是通过交易和任务获取最大利益，
+                            同时为探险者提供支持。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            他的交易成本高昂，任务可能涉及高风险，但成功互动后，玩家可获得高级装备、稀有材料和重要提示，
+                            通过交易快速提升实力。
+                        </p>
+                    </div>
+
+                    <div class="character-quotes">
+                        <h4 class="text-2xl font-semibold text-yellow-300 mb-4">经典对话</h4>
+                        <div class="space-y-4">
+                            <blockquote class="quote-card">
+                                <p class="italic text-yellow-300 mb-2">
+                                    "嘿，朋友，这里可不是随便逛的地方。想要点好东西？拿资源来换吧。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 卡尔在熔岩峡谷中</cite>
+                            </blockquote>
+                            <blockquote class="quote-card">
+                                <p class="italic text-yellow-300 mb-2">
+                                    "遗迹里有大秘密，朋友，但可不是随便能进去的。小心点吧。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 卡尔在交易后</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character: Lyra -->
+    <section class="py-16 bg-gradient-to-b from-slate-800/30 to-gray-900/30">
+        <div class="container mx-auto px-6">
+            <div class="character-detail-card">
+                <div class="character-header-large">
+                    <div class="character-avatar-large bg-gradient-to-br from-red-500 to-orange-600">
+                        <span class="text-6xl">⚔️</span>
+                    </div>
+                    <div class="character-info-large">
+                        <h2 class="text-4xl font-bold text-red-300 mb-4">莉拉 (Lyra)</h2>
+                        <h3 class="text-xl text-orange-300 mb-4">皇家守卫队长</h3>
+                        <div class="character-traits-large">
+                            <span class="trait-tag">忠诚战士</span>
+                            <span class="trait-tag">区域守卫</span>
+                            <span class="trait-tag">复杂角色</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-content-large">
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-red-300 mb-4">背景故事</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            莉拉是CarinaHome星球的皇家守卫队长，对女王卡琳娜忠诚不二。她驻守在女王高原，
+                            是通往宫殿的主要障碍之一，负责保护女王和皇冠的安全。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            莉拉从小接受严格的战斗训练，成长为一名无畏的战士。她的忠诚源于对女王的感激，
+                            也因为她相信只有女王能维持星球的秩序。她的过去充满了战斗和牺牲。
+                        </p>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-red-300 mb-4">性格特征</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-lg font-semibold text-orange-300 mb-2">优点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 战斗技巧高超，力量强大</li>
+                                    <li>• 对女王忠诚，意志坚定</li>
+                                    <li>• 在特定条件下可被说服</li>
+                                    <li>• 拥有皇家装备和内部信息</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold text-yellow-300 mb-2">缺点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 对外来者充满敌意</li>
+                                    <li>• 难以信任他人</li>
+                                    <li>• 战斗中毫不留情</li>
+                                    <li>• 固执己见，难以动摇</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-red-300 mb-4">角色定位</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            莉拉是次要对抗者和区域守卫，也是一个潜在的复杂角色。她的使命是保护女王和宫殿，
+                            阻止任何未经许可的人进入。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            玩家需要通过战斗、潜行或说服来克服她的阻碍。击败她可能掉落皇家装备，
+                            而成功说服她（需特定条件）可获得内部信息或宫殿捷径。
+                        </p>
+                    </div>
+
+                    <div class="character-quotes">
+                        <h4 class="text-2xl font-semibold text-red-300 mb-4">经典对话</h4>
+                        <div class="space-y-4">
+                            <blockquote class="quote-card">
+                                <p class="italic text-red-300 mb-2">
+                                    "外来者，止步！女王不欢迎不速之客。证明你的意图，否则准备战斗！"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 莉拉在女王高原</cite>
+                            </blockquote>
+                            <blockquote class="quote-card">
+                                <p class="italic text-red-300 mb-2">
+                                    "好吧，外来者。我相信你的诚意。女王在宫殿内等你，但小心，她的力量远超你的想象。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 莉拉在被说服后</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character: Cave Fishman -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="character-detail-card">
+                <div class="character-header-large">
+                    <div class="character-avatar-large bg-gradient-to-br from-green-500 to-emerald-600">
+                        <span class="text-6xl">🐟</span>
+                    </div>
+                    <div class="character-info-large">
+                        <h2 class="text-4xl font-bold text-green-300 mb-4">洞穴鱼人 (Cave Fishman)</h2>
+                        <h3 class="text-xl text-emerald-300 mb-4">黑暗环境适应者</h3>
+                        <div class="character-traits-large">
+                            <span class="trait-tag">洞穴居民</span>
+                            <span class="trait-tag">潜在向导</span>
+                            <span class="trait-tag">复杂盟友</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-content-large">
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-green-300 mb-4">背景故事</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            洞穴鱼人是CarinaHome星球生物发光洞穴中的两栖人型生物，适应了黑暗环境，
+                            依靠发光菌类和回声导航生存。它们拥有独特的社会结构，对外来者充满警惕。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            鱼人的历史与洞穴的形成密切相关，它们视洞穴为家园，保护着其中的资源和秘密通道。
+                            它们的语言和文化对大多数探险者来说是谜，但友好互动可能揭示它们的智慧。
+                        </p>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-green-300 mb-4">性格特征</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-lg font-semibold text-emerald-300 mb-2">优点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 熟悉洞穴环境，可作为向导</li>
+                                    <li>• 能提供稀有资源和安全路径</li>
+                                    <li>• 在战斗中可能提供协助</li>
+                                    <li>• 了解通往女王高原的捷径</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold text-yellow-300 mb-2">缺点</h5>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li>• 初次接触时充满敌意或警戒</li>
+                                    <li>• 难以沟通，文化差异大</li>
+                                    <li>• 信任需要通过友好行动赢得</li>
+                                    <li>• 可能因误解引发冲突</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-section">
+                        <h4 class="text-2xl font-semibold text-green-300 mb-4">角色定位</h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            洞穴鱼人是支线角色，可能成为洞穴区域的向导或敌人。它们的使命是保护洞穴家园，
+                            对任何入侵者保持警惕。
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            初次遭遇时可能充满敌意，但通过友好行动赢得信任后，它们可指引安全路径、
+                            提供稀有资源位置，甚至协助战斗，解锁通往女王高原的隐秘通道。
+                        </p>
+                    </div>
+
+                    <div class="character-quotes">
+                        <h4 class="text-2xl font-semibold text-green-300 mb-4">经典对话</h4>
+                        <div class="space-y-4">
+                            <blockquote class="quote-card">
+                                <p class="italic text-green-300 mb-2">
+                                    "嘶... 外来者... 为何闯入我们的领域？离开... 否则... 后果自负..."
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 洞穴鱼人初次遭遇时</cite>
+                            </blockquote>
+                            <blockquote class="quote-card">
+                                <p class="italic text-green-300 mb-2">
+                                    "外来者，愿你带来平衡。我们会记住你的善意。跟随我们，走安全之路。"
+                                </p>
+                                <cite class="text-gray-400 text-sm">— 洞穴鱼人成为盟友后</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Interactions -->
+    <section class="py-16 bg-gradient-to-b from-slate-800/30 to-gray-900/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-cyan-300 mb-6">角色关系网络</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    这些角色虽然生活在不同的环境中，但他们的命运在CarinaHome星球上紧密相连。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="relationship-card">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-4">女王卡琳娜 ↔ 莉拉</h3>
+                    <p class="text-gray-300 text-sm">
+                        统治者与忠诚守卫的关系。莉拉对女王绝对忠诚，是通往宫殿的主要障碍，
+                        她的行动完全以女王的意志为导向。
+                    </p>
+                </div>
+
+                <div class="relationship-card">
+                    <h3 class="text-xl font-semibold text-cyan-300 mb-4">艾尔达 ↔ 女王卡琳娜</h3>
+                    <p class="text-gray-300 text-sm">
+                        历史见证者与统治者的对比。艾尔达了解女王守护皇冠的动机，
+                        可能为玩家提供和平解决与女王冲突的线索。
+                    </p>
+                </div>
+
+                <div class="relationship-card">
+                    <h3 class="text-xl font-semibold text-yellow-300 mb-4">卡尔 ↔ 艾尔达</h3>
+                    <p class="text-gray-300 text-sm">
+                        商人与长者的对立。卡尔追求利益，而艾尔达重视传统和知识，
+                        他们的互动可能为玩家提供不同视角和选择。
+                    </p>
+                </div>
+
+                <div class="relationship-card">
+                    <h3 class="text-xl font-semibold text-red-300 mb-4">莉拉 ↔ 卡尔</h3>
+                    <p class="text-gray-300 text-sm">
+                        守卫与商人的冲突。莉拉对卡尔的交易活动充满怀疑，
+                        玩家可能需要在这两者之间做出选择或调和矛盾。
+                    </p>
+                </div>
+
+                <div class="relationship-card">
+                    <h3 class="text-xl font-semibold text-green-300 mb-4">洞穴鱼人 ↔ 艾尔达</h3>
+                    <p class="text-gray-300 text-sm">
+                        洞穴居民与历史见证者的潜在联系。艾尔达可能了解鱼人的文化，
+                        帮助玩家与鱼人建立友好关系，解锁捷径。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-purple-300 mb-6">准备与这些角色互动了吗？</h2>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                在CarinaHome历险记中，你将有机会与这些独特的角色相遇，
+                学习他们的生存技能，体验他们的故事。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="ecosystem.html" class="hero-button bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700">
+                    探索星球生态
+                </a>
+                <a href="interactive-adventure.html" class="hero-button bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700">
+                    开始互动冒险
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-900 border-t border-slate-700/50">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4 inline-block">
+                CarinaHome
+            </a>
+            <p class="text-gray-400">
+                每个角色都有自己的故事，每个故事都值得探索
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

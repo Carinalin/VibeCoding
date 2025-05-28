@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarinaHome最终展示 - 虚构星球完整体验</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-slate-800 to-gray-900 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    CarinaHome
+                </h1>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#intro" class="nav-link">介绍</a>
+                    <a href="#ecosystem" class="nav-link">生态系统</a>
+                    <a href="#characters" class="nav-link">角色档案</a>
+                    <a href="#map" class="nav-link">星球地图</a>
+                    <a href="#adventure" class="nav-link">互动体验</a>
+                </div>
+                <button id="mobile-menu-toggle" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900/95 backdrop-blur-sm border-t border-slate-700/50">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#intro" class="nav-link block px-3 py-2 rounded-md">介绍</a>
+                <a href="#ecosystem" class="nav-link block px-3 py-2 rounded-md">生态系统</a>
+                <a href="#characters" class="nav-link block px-3 py-2 rounded-md">角色档案</a>
+                <a href="#map" class="nav-link block px-3 py-2 rounded-md">星球地图</a>
+                <a href="#adventure" class="nav-link block px-3 py-2 rounded-md">互动体验</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="intro" class="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-blue-900/20 to-cyan-900/30"></div>
+        <div class="cosmic-bg"></div>
+        <div class="relative z-10 text-center max-w-5xl mx-auto px-4 md:px-6">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8">
+                <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">CarinaHome</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6 md:mb-8 font-light">
+                探索神秘星球的奇异生态与无限可能
+            </p>
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl md:max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
+                在遥远的海山二星系边缘，存在着一颗充满神秘的星球——CarinaHome。这里拥有独特的碳质地貌、
+                极端的辐射环境、复杂的地下洞穴网络，以及令人惊叹的生物群落。每一寸土地都蕴含着未知的秘密，
+                每一次探索都可能改变你对生命与宇宙的认知。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+                <a href="#ecosystem" class="hero-button text-sm md:text-base px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700">
+                    开始探索
+                </a>
+                <a href="#adventure" class="hero-button text-sm md:text-base px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700">
+                    立即冒险
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-5 h-8 md:w-6 md:h-10 border-2 border-cyan-400 rounded-full flex justify-center">
+                <div class="w-1 h-2 md:h-3 bg-cyan-400 rounded-full mt-1 md:mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="py-16 md:py-20 bg-gradient-to-b from-slate-800/50 to-gray-900/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-cyan-300 mb-4 md:mb-6">星球生态系统</h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
+                    CarinaHome星球拥有复杂多样的生态环境，从广阔的碳岩荒原到神秘的水晶森林，
+                    从炽热的熔岩峡谷到漂浮的空中岛屿，每个区域都孕育着独特的生命形式和自然现象。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
+                <!-- Geographic Features -->
+                <div class="space-y-6 md:space-y-8">
+                    <h3 class="text-2xl md:text-3xl font-semibold text-purple-300 mb-4 md:mb-6">地理特征</h3>
+                    
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">碳岩荒原</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            星球表面大面积覆盖着由原始碳质材料构成的荒原，呈现低反照率的黑暗色调，
+                            地表多孔且疏松，布满风化的有机化合物沉积物。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">水晶森林</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            充满巨型水晶树和发光植被的梦幻区域，光影交错，宛如仙境。这里是初期探索的理想之地，
+                            隐藏着环境谜题和珍贵资源如心语苔藓。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">熔岩峡谷</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            炽热岩浆流和高温泉的危险区域，空气中充满硫磺气味。这里散落着高温矿石，
+                            是获取高级材料的地点，但环境挑战严峻。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">漂浮岛屿群</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            空中悬浮的岛屿群，由藤蔓和风道连接，展现星球反重力能量机制。
+                            这里是高风险区域，考验移动和平台跳跃能力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Additional Regions -->
+                <div class="space-y-6 md:space-y-8">
+                    <h3 class="text-2xl md:text-3xl font-semibold text-purple-300 mb-4 md:mb-6">更多区域</h3>
+                    
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">古代遗迹</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            古老建筑群，布满机关和谜题，承载着星球的历史痕迹。这里是核心剧情推进点，
+                            通过解谜和探索可揭示星球历史和通往终极目标的隐秘通路。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">生物发光洞穴</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            漆黑地底环境，发光菌类和奇异生物散发出微弱光芒，回声在洞中回荡。
+                            这里充满黑暗和声音挑战，可能隐藏通往其他区域的捷径。
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4 class="text-lg md:text-xl font-semibold text-cyan-300 mb-2 md:mb-3">女王高原及宫殿</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            庄严平原和宏伟宫殿所在的区域，皇家守卫巡逻，充满肃穆气氛。这里是游戏终极区域，
+                            涉及高等级战斗或潜行挑战，也是与最终目标互动的所在地。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="ecosystem.html" class="inline-block bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base">
+                    详细了解生态系统
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-16 md:py-20 bg-gradient-to-b from-gray-900/50 to-slate-800/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-purple-300 mb-4 md:mb-6">主要角色档案</h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
+                    在CarinaHome星球上，生活着独特的角色。他们各自代表不同的立场，
+                    拥有独特的生存技能和引人入胜的背景故事。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Queen Carina -->
+                <div class="character-card">
+                    <div class="character-avatar bg-gradient-to-br from-purple-500 to-pink-600">
+                        <span class="text-3xl md:text-4xl">👑</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-purple-300 mb-3 md:mb-4">女王卡琳娜 (Queen Carina)</h3>
+                    <p class="text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                        星球统治者，皇冠持有者，强大而孤独。为了守护皇冠和星球秘密，
+                        她采取强硬手段，是最终的挑战或合作对象。
+                    </p>
+                    <div class="character-quote">
+                        <p class="italic text-purple-300 text-sm md:text-base">
+                            "外来者，你为何闯入我的领域？是来挑战我的力量，还是寻求星球的平衡？"
+                        </p>
+                    </div>
+                    <div class="character-traits">
+                        <span class="trait-tag text-xs md:text-sm">强大</span>
+                        <span class="trait-tag text-xs md:text-sm">孤独</span>
+                        <span class="trait-tag text-xs md:text-sm">统治者</span>
+                    </div>
+                </div>
+
+                <!-- Elda -->
+                <div class="character-card">
+                    <div class="character-avatar bg-gradient-to-br from-blue-500 to-cyan-600">
+                        <span class="text-3xl md:text-4xl">🧙‍♀️</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-cyan-300 mb-3 md:mb-4">艾尔达 (Elda)</h3>
+                    <p class="text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                        星球历史见证者，知晓皇冠和遗迹的秘密。她是知识提供者，
+                        居住在水晶森林深处，引导有价值的人寻找真相。
+                    </p>
+                    <div class="character-quote">
+                        <p class="italic text-cyan-300 text-sm md:text-base">
+                            "外来者，你为何闯入这片圣地？如果你想获得我的信任，证明你的价值吧。"
+                        </p>
+                    </div>
+                    <div class="character-traits">
+                        <span class="trait-tag text-xs md:text-sm">智慧</span>
+                        <span class="trait-tag text-xs md:text-sm">长者</span>
+                        <span class="trait-tag text-xs md:text-sm">向导</span>
+                    </div>
+                </div>
+
+                <!-- Kal -->
+                <div class="character-card">
+                    <div class="character-avatar bg-gradient-to-br from-yellow-600 to-orange-600">
+                        <span class="text-3xl md:text-4xl">💰</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-yellow-300 mb-3 md:mb-4">卡尔 (Kal)</h3>
+                    <p class="text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
+                        实用主义探险家商人，追求利益，消息灵通。他在熔岩峡谷活动，
+                        提供资源交易和信息，是积累实力的关键人物。
+                    </p>
+                    <div class="character-quote">
+                        <p class="italic text-yellow-300 text-sm md:text-base">
+                            "嘿，朋友，这里可不是随便逛的地方。想要点好东西？拿资源来换吧。"
+                        </p>
+                    </div>
+                    <div class="character-traits">
+                        <span class="trait-tag text-xs md:text-sm">精明</span>
+                        <span class="trait-tag text-xs md:text-sm">商人</span>
+                        <span class="trait-tag text-xs md:text-sm">信息掮客</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 md:mt-12">
+                <a href="characters.html" class="inline-block bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base">
+                    深入了解角色档案
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planet Map Section -->
+    <section id="map" class="py-16 md:py-20 bg-gradient-to-b from-slate-800/50 to-gray-900/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-cyan-300 mb-4 md:mb-6">CarinaHome星球探索地图</h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
+                    这份详细的星球地图展示了CarinaHome的主要地理特征和生态区域。
+                    从碳岩荒原到水晶森林，从熔岩峡谷到古代遗迹，每个区域都有其独特的魅力和挑战。
+                </p>
+            </div>
+
+            <div class="relative max-w-5xl md:max-w-6xl mx-auto">
+                <div class="map-container">
+                    <img 
+                        src="map@1024x1536.png" 
+                        alt="CarinaHome星球生态系统地图" 
+                        class="w-full h-auto rounded-2xl shadow-2xl border border-cyan-500/30"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl pointer-events-none"></div>
+                </div>
+
+                <!-- Map Legend -->
+                <div class="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <div class="legend-item">
+                        <div class="legend-color bg-gradient-to-r from-gray-700 to-gray-900"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-300 text-sm md:text-base">碳岩荒原</h4>
+                            <p class="text-xs md:text-sm text-gray-500">广阔的黑色荒原</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-gradient-to-r from-blue-600 to-cyan-500"></div>
+                        <div>
+                            <h4 class="font-semibold text-cyan-300 text-sm md:text-base">水晶森林</h4>
+                            <p class="text-xs md:text-sm text-gray-500">梦幻发光区域</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-gradient-to-r from-red-600 to-orange-500"></div>
+                        <div>
+                            <h4 class="font-semibold text-red-300 text-sm md:text-base">熔岩峡谷</h4>
+                            <p class="text-xs md:text-sm text-gray-500">炽热危险地带</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-gradient-to-r from-purple-600 to-pink-500"></div>
+                        <div>
+                            <h4 class="font-semibold text-purple-300 text-sm md:text-base">古代遗迹</h4>
+                            <p class="text-xs md:text-sm text-gray-500">历史谜题之地</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Adventure Section -->
+    <section id="adventure" class="py-16 md:py-20 bg-gradient-to-b from-gray-900/50 to-slate-800/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-purple-300 mb-4 md:mb-6">CarinaHome历险记</h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
+                    踏上这颗神秘星球的冒险之旅。在这个交互式体验中，你的每一个选择都将影响故事的发展。
+                    探索水晶森林、熔岩峡谷等多样区域，与独特角色互动，揭开“皇冠”的秘密，决定星球的命运。
+                </p>
+            </div>
+
+            <div class="max-w-3xl md:max-w-4xl mx-auto">
+                <div class="adventure-preview">
+                    <div class="adventure-screenshot">
+                        <div class="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-6 md:p-8 border border-slate-600/50 shadow-xl">
+                            <h3 class="text-xl md:text-2xl font-bold text-cyan-300 mb-3 md:mb-4">废弃营地：探险的起点</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                                你在一片废弃的探险营地中醒来，四周散落着破损的设备和遗留的日志碎片。你的任务是揭开“皇冠”的秘密并稳定星球的能量...
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                                <div class="choice-preview">
+                                    <span class="choice-letter">A</span>
+                                    <span class="choice-text text-sm md:text-base">前往水晶森林</span>
+                                </div>
+                                <div class="choice-preview">
+                                    <span class="choice-letter">B</span>
+                                    <span class="choice-text text-sm md:text-base">前往熔岩峡谷</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-6 md:mt-8">
+                    <a href="interactive-adventure.html" class="inline-block bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 px-6 py-3 sm:px-8 sm:py-4 md:px-12 md:py-6 rounded-full text-sm sm:text-base md:text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        开始你的CarinaHome历险
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 md:py-12 bg-slate-900 border-t border-slate-700/50">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h3 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-3 md:mb-4">
+                CarinaHome
+            </h3>
+            <p class="text-gray-400 mb-4 md:mb-6 text-sm md:text-base">
+                探索未知，发现可能。在这颗神秘星球上，每一次冒险都是新的开始。
+            </p>
+            <div class="flex justify-center space-x-6 md:space-x-8">
+                <a href="ecosystem.html" class="text-cyan-400 hover:text-cyan-300 transition-colors text-sm md:text-base">生态系统</a>
+                <a href="characters.html" class="text-purple-400 hover:text-purple-300 transition-colors text-sm md:text-base">角色档案</a>
+                <a href="interactive-adventure.html" class="text-pink-400 hover:text-pink-300 transition-colors text-sm md:text-base">互动冒险</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
